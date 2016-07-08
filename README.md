@@ -17,8 +17,8 @@ The following variables will change the behavior of this role (default values
 are shown below):
 
 ```yaml
-# Items to add to the DockbarX launcer
-docbarx_launcher_items: []
+# Users with items to add to the DockbarX launcher
+users: []
 ```
 
 Example Playbook
@@ -28,9 +28,11 @@ Example Playbook
 - hosts: servers
   roles:
     - role: gantsign.docbarx-launcher
-      docbarx_launcher_items:
-        - 'exo-terminal-emulator;/usr/share/applications/exo-terminal-emulator.desktop'
-        - 'thunar;/usr/share/applications/Thunar-folder-handler.desktop'
+      users:
+        - username: vagrant
+          docbarx_launcher_items:
+            - 'exo-terminal-emulator;/usr/share/applications/exo-terminal-emulator.desktop'
+            - 'thunar;/usr/share/applications/Thunar-folder-handler.desktop'
 ```
 
 License
