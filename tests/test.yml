@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - dockbarx-launcher
+    - ansible-role-dockbarx-launcher
