@@ -2,4 +2,8 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-role-dockbarx-launcher
+    - role: ansible-role-dockbarx-launcher
+      users:
+        - username: travis
+          docbarx_launcher_items:
+            - 'test-app;/usr/share/applications/test-app.desktop'
