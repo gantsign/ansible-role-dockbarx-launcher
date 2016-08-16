@@ -1,6 +1,7 @@
 ---
 # Configure DockbarX launcher
 - name: install gconf2
+  become: yes
   apt:
     name: gconf2
     state: present
@@ -27,5 +28,4 @@
     - "{{ users }}"
     - docbarx_launcher_items
   become: yes
-  become_method: sudo
   become_user: "{{ item.0.username }}"
