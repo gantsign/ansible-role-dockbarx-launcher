@@ -4,6 +4,7 @@
   apt:
     name: gconf2
     state: present
+
 - name: add launchers to dockbarx
   shell: |
     new_launcher='{{ item.1 }}'
