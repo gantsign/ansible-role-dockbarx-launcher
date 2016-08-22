@@ -15,7 +15,7 @@
       | grep --color=never '^\[' || echo "[]")
 
     # If the launcher is already in the list exit successfully here
-    echo "$existing_launchers" | grep -P "[\[,]${new_launcher}[\],]" && exit 0
+    echo "$existing_launchers" | grep -P "[\[,]${new_launcher}[\],]" && { echo 'No changes' ; exit 0; }
 
     # Append the new launcher to the end of the list
     new_launchers=$(echo "$existing_launchers" | sed "s:\]$:,${new_launcher}\]:" | sed "s:^\[,:\[:")
@@ -23,9 +23,13 @@
     # Update the list of launchers
     gconftool-2 --type list --list-type=string \
       --set /apps/dockbarx/launchers "$new_launchers" \
-    || exit 1
+    && { echo 'Changes applied' ; exit 1; } \
+    || { echo 'Error' ; exit 2; }
   with_subelements:
     - "{{ users }}"
     - docbarx_launcher_items
+  register: gconftool_result
+  changed_when: 'gconftool_result.rc == 1'
+  failed_when: 'gconftool_result.rc >= 2'
   become: yes
   become_user: "{{ item.0.username }}"
