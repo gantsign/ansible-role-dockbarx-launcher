@@ -2,6 +2,7 @@ Ansible Role: DockbarX Launcher
 ===============================
 
 [![Build Status](https://travis-ci.org/gantsign/ansible-role-dockbarx-launcher.svg?branch=master)](https://travis-ci.org/gantsign/ansible-role-dockbarx-launcher)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-gantsign.dockbarx--launcher-blue.svg)](https://galaxy.ansible.com/gantsign/dockbarx-launcher)
 
 Role to add items to the DockbarX launcher.
 
