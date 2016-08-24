@@ -27,7 +27,7 @@ Example Playbook
 ```yaml
 - hosts: servers
   roles:
-    - role: gantsign.docbarx-launcher
+    - role: gantsign.dockbarx-launcher
       users:
         - username: vagrant
           docbarx_launcher_items:
