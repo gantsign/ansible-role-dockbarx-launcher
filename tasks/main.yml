@@ -7,6 +7,10 @@
     state: present
 
 - name: add launchers to dockbarx
+  tags:
+    # False positive: [ANSIBLE0014] Environment variables don't work as part of command
+    # Setting the environment variables in the script so they are safe to use.
+    - skip_ansible_lint
   shell: |
     new_launcher='{{ item.1 }}'
 
